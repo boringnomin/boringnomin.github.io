@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>In Game</title>
+	<link rel="stylesheet" type="text/css" href="pagestyle_clone.css">
+</head>
+<body>
+	<header class="important-color">Guess The Passcode</header>
+	<input id="digit" type="number" name="digit" value=10><!--this is display: none -->
+	<p>Best Record : Solved in <span id="best-record">???</span> steps.</p>
+	<div class="icons">
+		<div id="hidden"></div>
+	</div>
+
+	<p>Possible numbers are</p>
+	<div class="icons">
+		<div id="possible-numbers"></div>
+	</div>
+
+	<p>Input Boxes are Below down there</p>
+	<div class="icons">
+		<div id="inputs"></div>
+	</div>
+	<button id="btn" type="button" onclick="inputNumbers()">Check</button>
+	<button id="btn-clear">Button On</button>
+	<div id="memory-box">
+		<ol id="memory"></ol>
+	</div>
+
+	<script type="text/javascript" src="code_clone.js"></script>
+	<!-- <footer><a href="https://www.flaticon.com/authors/vectors-market" title="icons">Icons created by Vectors Market - Flaticon</a></footer> -->
+</body>
+</html>

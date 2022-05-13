@@ -1,0 +1,93 @@
+*{
+	margin: 0px;
+}
+@font-face{
+	src:  url('fonts/Bebas Neue/BebasNeue-Regular.ttf');
+	font-family: Bebas-Neue;
+}
+@font-face{
+	src:  url('fonts/Kanit/Kanit-ExtraLightItalic.ttf');
+	font-family: kanit;
+}
+@font-face{
+	src:  url('fonts/Prompt/Prompt-MediumItalic.ttf');
+	font-family: prompt;
+}
+@font-face{
+	src:  url('fonts/Lobster/Lobster-Regular.ttf');
+	font-family: lobster;
+}
+body{
+	background-color: #16537e;
+	color: ghostwhite;
+	text-align: center;
+}
+header{
+	font-family: Bebas-Neue;
+	font-size: 50px;
+	background-color: #073763;
+	padding: 20px;
+	letter-spacing: 2.5px;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+p{
+	font-family: kanit;
+	letter-spacing: 2px;
+	padding-top: 10px;
+	text-shadow: 2px 1.5px 0.5px darkcyan;
+}
+p span{
+	color: darkgrey;
+	text-shadow: none;
+}
+div{
+	font-family: lobster;
+	font-size: 40px;
+	color: palegoldenrod;
+	background-color: transparent;
+	padding: 10px;
+}
+section label{
+	font-family: prompt;
+	font-size: 25px;
+	color: grey;
+	background-color: #dcb029;
+	padding: 3px 13px;
+	border-radius: 18px;
+}
+#level{
+	font-family: prompt;
+	font-size: 25px;
+	background-color: #bcbcbc;
+	width: 110px;
+	border-radius: 5px;
+	border: 1.5px solid goldenrod;
+}
+#btn-level{
+	font-family: Bebas-Neue;
+	font-size: 25px;
+	letter-spacing: 1.6px;
+	background-color: #8fce00;
+	color: whitesmoke;
+	border-radius: 5px;
+	border: 1.5px solid;
+	padding: 5px 10px;
+	margin-left: 10px;
+}
+.important-color{
+	color: #ffd966;
+	text-shadow: none;
+}
+#btn-level:hover{
+	background-color: #00bfff;
+}
+.message{
+	display: inline-block;
+	text-shadow: none;
+	border: 1px solid transparent;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 20px;
+}
