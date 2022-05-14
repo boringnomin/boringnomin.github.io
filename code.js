@@ -6,7 +6,6 @@ const numberIcons = ["icons/zero.png", "icons/one.png", "icons/two.png",
 
 var nDigits = parseInt(localStorage.getItem("level"));
 const Digits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-//const positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var code = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var count = 0;
@@ -46,7 +45,8 @@ else{
 	var possibleNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 	var nGPN = 10;
 	shuffle(possibleNumbers);
-	console.log(possibleNumbers);
+	// console.log(possibleNumbers);
+	document.getElementById("fill").style.display = "inline";
 }
 
 function generatePossibleNumbers() {
@@ -92,6 +92,13 @@ function shuffle(array) {
   return array;
 }
 
+function allFill(){
+	var fillValue = document.querySelector(".fill-all").value;
+	for(var i =0; i<nDigits; i++){
+		document.querySelector(".input"+i).value = fillValue;
+	}
+}
+
 addingIcons();
 function addingIcons() {
 	for(var i =0; i<nDigits; i++){
@@ -106,10 +113,11 @@ function addingIcons() {
 		var input = document.createElement('input');
 		input.className = "input" + i;
 		input.type = "number";
-		//input.name = "number";
 		input.min = '0';
 		input.max = '9';
 		variable.appendChild(input);
+		document.querySelector(".input"+i).autofocus = true;
+		
 	}
 
 	for (var i = 0; i < nGPN; i++) {
@@ -120,12 +128,6 @@ function addingIcons() {
 		img.alt = ""+ possibleNumbers[i];
 		variable.appendChild(img);
 	}
-}
-
-
-function showPossibleNumbers(showThis){
-	document.querySelector(".possible-numbers" + showThis).src = numberIcons[possibleNumbers[showThis]];
-	return 0;
 }
 
 var answer = [];
@@ -158,17 +160,42 @@ function inputNumbers(){
 		const s = successBox(true);
 	}
 }
+if(nDigits == 2)
+	document.getElementById("prevlvl").style.display = "none";
+else
+	document.getElementById("prevlvl").addEventListener("click", function(){
+		localStorage.setItem("level", nDigits - 1);
+});
+
+if(nDigits == 20)
+	document.getElementById("nextlvl").style.display = "none";
+else
+	document.getElementById("nextlvl").addEventListener("click", function(){
+		localStorage.setItem("level", nDigits + 1);
+});
+
+document.getElementById("info").addEventListener("click", function(){
+		window.alert("The Best Record is held on : "+ localStorage.getItem("datetime"+ nDigits));
+});
 
 document.getElementById("btn").addEventListener("mouseover", function () {
 	var checkInput = 0;
 	for(var i = 0; i<nDigits; i++){
 		answer[i] = parseInt(document.querySelector(".input"+ i).value);
-		if(answer[i]<0 || answer[i] >9 || (!answer[i] && answer[i] != 0))
-			document.getElementById("btn").disabled = true;
+		if(answer[i]<0 || answer[i] >9 || (!answer[i] && answer[i] != 0)){
+			var check = document.getElementById("btn");
+			check.disabled = true;
+			check.style.backgroundColor = "indianred";
+			check = 0;
+			break;
+		}
 	}
+	if(check == 0)
+		window.alert("Please fill in the boxes number between 0 to 9...\n Then click Button On -> Check again");
 });
 document.getElementById("btn-clear").addEventListener("click", function () {
 		document.getElementById("btn").disabled = false;
+		document.getElementById("btn").style.backgroundColor = "green";
 });
 
 var countSteps = 0;
@@ -190,12 +217,13 @@ function showInputNumbers(greens, reds, nulls){
 		inputDigits.appendChild(img);
 	}
 
+	if(nDigits >=10){
+		var nextline = document.getElementById("trial-" + countSteps);
+		var br = document.createElement('br');
+		nextline.appendChild(br);
+	}
+
 	for(var i=0; i<greens; i++){
-		if(nDigits >=10 && i == 0){
-			var nextline = document.getElementById("trial-" + countSteps);
-			var br = document.createElement('br');
-			nextline.appendChild(br);
-		}
 		var signal =document.getElementById("trial-" + countSteps);
 		var img = document.createElement('img');
 		img.className = "small";
@@ -232,12 +260,14 @@ function successBox(status){
 			document.querySelector('.hidden'+ i).src = numberIcons[Digits[i]];
 		if(countSteps<bestRecord){
 			localStorage.setItem("bestrecord"+ nDigits, countSteps);
+			localStorage.setItem("datetime" + nDigits, new Date());
       		bestRecord = localStorage.getItem("bestrecord"+ nDigits);
       		document.getElementById('best-record').textContent = bestRecord;
       	}
 	}
+	localStorage.setItem("lastGame", countSteps);
 	window.open("success.html");
-	return 0;
+ return 0;
 }
 
 console.log("Best record :"+localStorage.getItem("bestrecord"+ nDigits));
