@@ -8,25 +8,35 @@
 </head>
 <body>
 	<header class="important-color">Guess The Passcode</header>
-	<p>Best Record : Solved in <span id="best-record">???</span> steps.</p>
-	<div class="icons">
-		<div id="hidden"></div>
+	<div id="nav">
+		<a href="index.html" title="Home"><img class="nav-img" src="icons/home.png" alt="home"></a>
+		<a href="#" title="Information" id="info"><img class="nav-img" src="icons/information.png" alt="info"></a>
+		<a href="" title="Next Level" id="nextlvl"><img class="nav-img" src="icons/forward.png" alt="next level"></a>
+		<a href="" title="Previous Level" id="prevlvl"><img class="nav-img" src="icons/back.png" alt="previous level"></a>
+		<a href="" title="Refresh"><img class="nav-img" src="icons/reload.png" alt="refresh"></a>
 	</div>
+	<strong>Best Record : Solved in <span id="best-record">???</span> steps.</strong><br>
 
-	<p>Possible numbers are</p>
-	<div class="icons">
-		<div id="possible-numbers"></div>
-	</div>
-
-	<p>Input Boxes are Below down there</p>
-	<div class="icons">
-		<div id="inputs"></div>
-	</div>
+	<label for="hidden">Guess What???</label>
+	<div id="hidden" class="icons"></div><hr>
+	
+	<label for="possible-numbers">Possible numbers</label>
+	<div id="possible-numbers" class="icons"></div><hr>
+	
+	<label for="inputs">Input Boxes</label>
+	<div id="inputs" class="icons"></div><hr>
+	
+	<br>
 	<button id="btn" type="button" onclick="inputNumbers()">Check</button>
 	<button id="btn-clear">Button On</button>
+	<span id="fill"><button id="btn-fill" onclick="allFill()">Fill</button> => <input class="fill-all" type="number" name="fill" min="0" max="9"></span>
 	<div id="memory-box">
 		<ol id="memory"></ol>
 	</div>
+
+	<footer id="footer">
+		<h6>lin htet aung | May 2022</h6>
+	</footer>
 
 	<script type="text/javascript" src="code.js"></script>
 	<!-- <footer><a href="https://www.flaticon.com/authors/vectors-market" title="icons">Icons created by Vectors Market - Flaticon</a></footer> -->
