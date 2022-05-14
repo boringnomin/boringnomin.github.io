@@ -11,10 +11,7 @@ var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var count = 0;
 var bestRecord = localStorage.getItem("bestrecord"+ nDigits);
 
-
-if(!bestRecord)
-	var bestRecord = 100;
-else
+if(bestRecord)
 	document.getElementById('best-record').textContent = bestRecord;
 
 generateRandoms();
@@ -258,13 +255,10 @@ function successBox(status){
 		document.getElementById("btn-clear").disabled = true;
 		for(var i=0; i<nDigits; i++)
 			document.querySelector('.hidden'+ i).src = numberIcons[Digits[i]];
-		if(countSteps<bestRecord){
-			localStorage.setItem("bestrecord"+ nDigits, countSteps);
-			localStorage.setItem("datetime" + nDigits, new Date());
-      		bestRecord = localStorage.getItem("bestrecord"+ nDigits);
-      		document.getElementById('best-record').textContent = bestRecord;
-      	}
 	}
+	//document.getElementById('best-record').textContent = localStorage.getItem("bestrecord"+ nDigits);
+	if(!bestRecord)
+		localStorage.setItem("bestrecord" + nDigits, 100);
 	localStorage.setItem("lastGame", countSteps);
 	window.open("success.html");
  return 0;

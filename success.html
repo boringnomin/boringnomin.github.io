@@ -40,9 +40,9 @@
 			display: block;
 			width: 30%;
 			height: 200px;
-			background-image: linear-gradient(bisque, goldenrod);
+			background-image: linear-gradient(bisque, rgb(218, 165, 32));
 			border: 3px solid goldenrod;
-			color: cadetblue;
+			color: rgba(25, 99, 123, 0.963);
 			border-radius: 5px;
 			margin: auto;
 		}
@@ -72,6 +72,7 @@
 		<hr>
 		<strong>You currently solved <span class="complete"></span> steps.</strong>
 		<br><h3>Best record : <span class="best-record"></span></h3>
+		<h4>Now: <span class="date-time"></span></h4>
 	</div>
 	<div id="nav">
 		<a href="index.html" title="Home"><img src="icons/home.png" alt="home"></a>
@@ -84,8 +85,13 @@
 		var currentLevel = parseInt(localStorage.getItem("level"));
 		var highscore = parseInt(localStorage.getItem("bestrecord"+ currentLevel));
 		var currentScore = parseInt(localStorage.getItem("lastGame"));
-		if(currentScore < highscore)
+
+		if(currentScore < highscore){
 			document.getElementById("best").style.display = "block";
+			localStorage.setItem("bestrecord"+ currentLevel, currentScore);
+			localStorage.setItem("datetime" + currentLevel, new Date());
+			highscore = currentScore;
+		}
 		else if(currentScore >= highscore && currentScore < highscore+5)
 			document.getElementById("better").style.display = "block";
 		else
@@ -110,6 +116,8 @@
 		
 		document.querySelector(".complete").textContent = currentLevel +"-digits puzzle in " + currentScore;
 		document.querySelector(".best-record").textContent = highscore;
+
+		document.querySelector(".date-time").textContent = new Date();
 
 	</script>
 </body>
