@@ -9,10 +9,17 @@
 </head>
 <body>
 	<header class="important-color">Guess The Passcode</header>
+	<div class="board">
+		<h1>Best Records</h1><hr>
+		<strong>Levels     | Solve in __ moves</strong>
+		<ol id="list"></ol>
+		<button type="reset" onclick="closeBtn()">Close</button>
+	</div>
+	<a href="#" id="board" title="Board"><img src="icons/statistics.png" alt="Board"></a>
 	<section>
 		<p>
 			This game is inspired by <strong class="important-color">"Brain Training Logic Puzzle"</strong><br>
-			by <strong class="important-color">CL-Games</strong>. You can freely download it from the Play Store<br>
+			by <strong class="important-color">CL-Games</strong>. You can free download it from the Play Store<br>
 			and play a lot of addictive puzzles in one game.
 		</p>
 		
@@ -22,10 +29,13 @@
 			<span>|How many digits you want to try?|</span><br>
 			Regarding the insanity, I recommend you playing between 3 to 10 digits.
 		</p>
-		<p>Rules will appear after first input.</p>
+		<p>The information about real passcode leaks after every attempt you make effort.<br>
+		Green mark - Right number in right place.<br>
+		Red cross - Right number in wrong place.<br>
+		Yellow sign - Wrong number and place.</p>
 	</section>
 
-	<div>GOOD LUCK!!!</div>
+	<div id="goodluck">GOOD LUCK!!!</div>
 
 	<section>
 		<label for="level">How many digits you want to try?</label>
@@ -34,6 +44,11 @@
 		<button id="btn-level">Play</button>
 	</section>
 	<p class="message"></p>
+
+	<footer id="footer">
+		<h6>lin htet aung | May 2022</h6>
+	</footer>
+
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
