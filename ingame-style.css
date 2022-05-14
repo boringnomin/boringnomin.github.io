@@ -5,18 +5,29 @@
 	src:  url('fonts/Bebas Neue/BebasNeue-Regular.ttf');
 	font-family: Bebas-Neue;
 }
-/*@font-face{
-	src:  url('../fonts/Lobster/Lobster-Regular.ttf');
-	font-family: lobster;
-}*/
 @font-face{
 	src:  url('fonts/Kanit/Kanit-ExtraBold.ttf');
 	font-family: kanit-bold;
 }
+@font-face{
+	src:  url('fonts/Prompt/Prompt-MediumItalic.ttf');
+	font-family: prompt;
+}
+@font-face{
+	src:  url('fonts/Lobster/Lobster-Regular.ttf');
+	font-family: lobster;
+}
 body{
-	background-color: #20124d;
+	background-image: linear-gradient(#164C7E,#20124d);
 	color: ghostwhite;
 	text-align: center;
+}
+strong{
+	background-color: green;
+	font-family: Bebas-Neue;
+	font-size: 20px;
+	padding: 0px 5px;
+	letter-spacing: 0.3px;
 }
 .important-color{
 	color: #ffd966;
@@ -31,26 +42,30 @@ header{
 	border: 1px solid black;
 	border-radius: 3px;
 }
-.icons{
+#nav{
 	display: grid;
-	grid-auto-columns: auto;
-	margin: 20px 50px;
+	position: fixed;
+	left: 5px;
+	grid-auto-rows: auto;
+	padding-top: 20px;
+}
+.nav-img{
+	padding-top: 15px;
+}
+.icons{
+	margin: 16px 64px;
 	height: auto;
-	/*border: 1px solid;*/
 }
 img{
 	width: 50px;
 	height: 50px;
+	padding-left: 5px;
 }
-p{
-	display: inline;
+label{
 	font-family: kanit-bold;
 	letter-spacing: 1.1px;
-	font-size: 20px;
-	color: floralwhite;
-	background-color: black;
-	border-radius: 7px;
-	padding: 10px;
+	font-size: 15px;
+	color: bisque;
 }
 input{
 	width: 50px;
@@ -62,27 +77,80 @@ input{
 	background-color: midnightblue;
 	color: whitesmoke;
 	font-family: kanit-bold;
+
 }
 .small{
 	width: 15px;
 	height: 15px;
-	margin-left: 3px;
-	background-color: bisque;
 }
 .medium{
 	width: 25px;
 	height: 25px;
-	margin-left: 5px;
-	background-color: bisque;
 	margin-top: 5px;
 }
 #memory-box{
 	width: 650px;
 	height: 210px;
-	overflow: auto;
+	overflow-y: scroll;
 	white-space: nowrap;
-	border: 5px solid;
-	background-color: darkred;
+	border: 5px solid #1C2833;
+	background-color: #212F3D;
 	margin: auto;
 	margin-top: 20px;
+}
+
+ol li{
+	font-family: Bebas-Neue;
+	color: #7190AD;
+	font-size: 18px;
+}
+hr{
+	width: 65%;
+	border: 0.5px solid #2F1A82;
+	margin: auto;
+}
+#btn{
+	font-family: kanit-bold;
+	background-color: green;
+	color: ghostwhite;
+	border-color: green;
+}
+#btn-clear{
+	font-family: kanit-bold;
+	background-color: #555555;
+	color: ghostwhite;
+}
+#btn-clear:hover{
+	background-color: green;
+}
+
+#fill{
+	display: none;
+}
+.fill-all{
+	background-color: bisque;
+	color: chocolate;
+	font-size: 20px;
+	width: 30px;
+	height: 20px;
+}
+#btn-fill{
+	font-family: kanit-bold;
+	background-color: midnightblue;
+	color: ghostwhite;
+}
+#btn-fill:hover{
+	background-color: #0060F3;
+}
+#footer{
+  	position: relative;
+  	bottom: 0;
+  	width: 100%;
+  	height: 55px;/*073763*/
+  	background-image: linear-gradient(#203060,#201221);
+    color: whitesmoke;
+}
+#footer h6{
+	font-family: prompt;
+  	padding: 20px;
 }
