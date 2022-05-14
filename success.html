@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Success</title>
+	<title>Good Job</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+		}
+		@font-face{
+			src:  url('fonts/Bebas Neue/BebasNeue-Regular.ttf');
+			font-family: Bebas-Neue;
+		}
+		@font-face{
+			src:  url('fonts/Lobster/Lobster-Regular.ttf');
+			font-family: lobster;
+		}
+		body{
+			background-color: #16537e;
+			color: ghostwhite;
+			text-align: center;
+		}
+		header{
+			font-family: Bebas-Neue;
+			font-size: 50px;
+			background-color: #073763;
+			padding: 20px;
+			letter-spacing: 2.5px;
+			border: 1px solid black;
+			border-radius: 3px;
+		}
+		.important-color{
+			color: #ffd966;
+			text-shadow: none;
+		}
+		#headline{
+			padding-top: 10px;
+			font-family: lobster;
+			display: block;
+			width: 30%;
+			height: 200px;
+			background-image: linear-gradient(bisque, goldenrod);
+			border: 3px solid goldenrod;
+			color: cadetblue;
+			border-radius: 5px;
+			margin: auto;
+		}
+		hr{
+			width: 90%;
+			margin: auto;
+			border: 1px dotted;
+		}
+		h1{
+			display: none;
+		}
+		strong{
+			display: block;
+			margin-top: 10px;
+		}
+		h3{
+			font-size: 30px;
+		}
+	</style>
 </head>
 <body>
-	<h1>Success!!!</h1>
+	<header class="important-color">Guess The Passcode</header>
+	<div id="headline">
+		<h1 id="good">Success!!!</h1>
+		<h1 id="better">Excellent!!!</h1>
+		<h1 id="best">New Record</h1>
+		<hr>
+		<strong>You currently solved <span class="complete"></span> steps.</strong>
+		<br><h3>Best record : <span class="best-record"></span></h3>
+	</div>
+	<div id="nav">
+		<a href="index.html" title="Home"><img src="icons/home.png" alt="home"></a>
+		<a href="#" title="Information" id="info"><img src="icons/information.png" alt="info"></a>
+		<a href="#" title="Next Level" id="nextlvl"><img src="icons/forward.png" alt="next level"></a>
+		<a href="#" title="Play Again!" id="playagain"><img src="icons/reload.png" alt="again"></a>
+	</div>
+
+	<script type="text/javascript">
+		var currentLevel = parseInt(localStorage.getItem("level"));
+		var highscore = parseInt(localStorage.getItem("bestrecord"+ currentLevel));
+		var currentScore = parseInt(localStorage.getItem("lastGame"));
+		if(currentScore < highscore)
+			document.getElementById("best").style.display = "block";
+		else if(currentScore >= highscore && currentScore < highscore+5)
+			document.getElementById("better").style.display = "block";
+		else
+			document.getElementById("good").style.display = "block";
+
+		if(currentLevel >= 20)
+			document.getElementById("nextlvl").style.display = "none";
+		else
+			document.getElementById("nextlvl").addEventListener("click", function(){
+				localStorage.setItem("level", currentLevel+1);
+				document.getElementById("nextlvl").href = "ingame.html";
+		});
+
+		const again = document.getElementById("playagain").addEventListener("click", function(){
+			localStorage.setItem("level", currentLevel);
+			document.getElementById("playagain").href = "ingame.html";
+		});
+
+		document.getElementById("info").addEventListener("click", function(){
+			window.alert("The Best Record is held on : "+ localStorage.getItem("datetime"+ currentLevel));
+		});
+		
+		document.querySelector(".complete").textContent = currentLevel +"-digits puzzle in " + currentScore;
+		document.querySelector(".best-record").textContent = highscore;
+
+	</script>
 </body>
 </html>
