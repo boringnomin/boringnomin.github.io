@@ -18,7 +18,7 @@ generateRandoms();
 function generateRandoms(){
 	for (var i = 0; i < nDigits; i++)
 		Digits[i] = Math.floor(Math.random()*10);
-	console.log(Digits);
+	//console.log(Digits);
 	for(var i=0; i<nDigits; i++){
 		for(var j=0; j<10; j++){
 			if(Digits[i] == j){
@@ -31,7 +31,7 @@ function generateRandoms(){
 		}
 	}
 }
-console.log(code);
+//console.log(code);
 
 var possibleNumbers = [];
 if(nDigits < 8){
@@ -142,16 +142,16 @@ function inputNumbers(){
             if(answer[j] == i)
                 count++;
         }
-        console.log(count);
+        //console.log(count);
         if(code[i] > count)
             nulls = nulls + code[i] - count;
         count = 0;
     }
 
     reds = nDigits - greens - nulls;
-    console.log(greens + " greens");
-	console.log(reds + " reds");
-	console.log(nulls + " nulls");
+    // console.log(greens + " greens");
+	// console.log(reds + " reds");
+	// console.log(nulls + " nulls");
 	const r = showInputNumbers(greens, reds, nulls);
 	if(greens == nDigits){
 		const s = successBox(true);
@@ -264,4 +264,4 @@ function successBox(status){
  return 0;
 }
 
-console.log("Best record :"+localStorage.getItem("bestrecord"+ nDigits));
+//console.log("Best record :"+localStorage.getItem("bestrecord"+ nDigits));
