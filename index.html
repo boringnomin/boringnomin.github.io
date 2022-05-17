@@ -3,52 +3,52 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Crack Code Puzzle</title>
 </head>
 <body>
 	<header class="important-color">Guess The Passcode</header>
-	<div class="board">
-		<h1>Best Records</h1><hr>
-		<strong>Levels     | Solve in __ moves</strong>
-		<ol id="list"></ol>
-		<button type="reset" onclick="closeBtn()">Close</button>
-	</div>
-	<a href="#" id="board" title="Board"><img src="icons/statistics.png" alt="Board"></a>
-	<section>
-		<p>
-			This game is inspired by <strong class="important-color">"Brain Training Logic Puzzle"</strong><br>
-			by <strong class="important-color">CL-Games</strong>. You can free download it from the Play Store<br>
-			and play a lot of addictive puzzles in one game.
-		</p>
-		
-		<p>
-			About this one puzzle, it is called <strong class="important-color">"Crack Code".</strong><br>
-			For difficulty level, I added the first question about - <br>
-			<span>|How many digits you want to try?|</span><br>
-			Regarding the insanity, I recommend you playing between 3 to 10 digits.
-		</p>
-		<p>The information about real passcode leaks after every attempt you make effort.<br>
-		Green mark - Right number in right place.<br>
-		Red cross - Right number in wrong place.<br>
-		Yellow sign - Wrong number and place.</p>
-	</section>
+	<div id="page-container">
+		<div id="content-wrap">
+			<div class="board">
+				<h1>Best Records</h1><hr>
+				<strong>Levels     | Solve in __ moves</strong>
+				<ol id="list"></ol>
+				<button type="reset" onclick="closeBtn()">Close</button>
+			</div>
+			<a href="#" id="board" title="Board"><img src="icons/statistics.png" alt="Board"></a>
+			<section>
+				<p>
+					This game is inspired by <strong class="important-color">"Brain Training Logic Puzzle"</strong><br>
+					by <strong class="important-color">CL-Games</strong>. You can free download it from the Play Store<br>
+					and play a lot of addictive puzzles in one game.
+				</p>
+				<p>
+					About this one puzzle, it is called <strong class="important-color">"Crack Code".</strong><br>
+					For difficulty level, I added the first question about - <br>
+					<span>|How many digits you want to try?|</span><br>
+					Regarding the insanity, I recommend you playing between 3 to 10 digits.
+				</p>
+				<p>The information about real passcode leaks after every attempt you make effort.<br>
+				Green mark - Right number in right place.<br>
+				Red cross - Right number in wrong place.<br>
+				Yellow sign - Wrong number and place.</p>
+			</section>
 
-	<div id="goodluck">GOOD LUCK!!!</div>
+			<div id="goodluck">GOOD LUCK!!!</div>
 
-	<section>
-		<label for="level">How many digits you want to try?</label>
-		<span class="important-color">:</span>
-		<input type="number" id="level" name="level" min="2" max="20" placeholder="2 to 20">
-		<button id="btn-level">Play</button>
-	</section>
-	<p class="message"></p>
-
+			<section>
+				<label for="level">How many digits you want to try?</label>
+				<span class="important-color">:</span>
+				<input type="number" id="level" name="level" min="2" max="20" placeholder="2 to 20">
+				<button id="btn-level">Play</button>
+			</section>
+			<p class="message"></p>
+		</div>
 	<footer id="footer">
 		<h6>lin htet aung | May 2022</h6>
 	</footer>
-
+	</div>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
