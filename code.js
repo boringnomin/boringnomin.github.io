@@ -135,7 +135,7 @@ function inputNumbers(){
 		if(answer[i] == Digits[i])
 			greens++;
 	}
-	console.log(answer);
+	//console.log(answer);
 	//console.log(positions);
 	for(var i=0; i<10; i++){
         for(var j=0; j<nDigits; j++){
